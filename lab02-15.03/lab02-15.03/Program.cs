@@ -54,7 +54,28 @@ namespace lab02_15._03
         // piąty konstruktor (przyjmuje tablice int) Sito Erastotenesa – liczby pierwsze
         public Konstruktor(int[] arr)
         {
-
+            bool czyPierwsza = true;
+            Console.Write("Konstruktor5: ");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for(int j = 2; j < arr[i]; j++)
+                {
+                    
+                    if (arr[i] % j == 0)
+                    {
+                        czyPierwsza = false;
+                        break;
+                    }
+                    else
+                    {
+                        czyPierwsza = true;
+                    }
+                }
+                if(czyPierwsza == true)
+                {
+                    Console.Write(arr[i] +" ");
+                }
+            }
         }
 
     }
@@ -67,7 +88,7 @@ namespace lab02_15._03
             Konstruktor konstruktor2 = new Konstruktor('b');
             Konstruktor konstruktor3 = new Konstruktor(5.1, 'Z');
             Konstruktor konstruktor4 = new Konstruktor(36.0, 8.0);
-            Konstruktor konstruktor5 = new Konstruktor(new int[] { 1, 3, 5, 7, 9 });
+            Konstruktor konstruktor5 = new Konstruktor(new int[] { 1, 2, 3, 4, 5, 7, 9, 12, 15, 31, 41, 52, 55 });
             Console.ReadKey();
         }
     }
