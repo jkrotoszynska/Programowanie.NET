@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace lab01_01._03
+namespace _2_dot_net
 {
     class Program
     {
@@ -97,10 +97,10 @@ namespace lab01_01._03
 
                 int[][] tab = new int[10][];
                 tab[0] = new int[1];
-                tab[1] = new int[1]; 
-                tab[2] = new int[2]; 
-                tab[3] = new int[3]; 
-                tab[4] = new int[5]; 
+                tab[1] = new int[1];
+                tab[2] = new int[2];
+                tab[3] = new int[3];
+                tab[4] = new int[5];
                 tab[5] = new int[8];
                 tab[6] = new int[13];
                 tab[7] = new int[21];
@@ -127,10 +127,10 @@ namespace lab01_01._03
 
                             Console.Write("tab[{0}] = ", i);
 
-                            for (int k = 0; k < ilosc ; k++)
+                            for (int k = 0; k < ilosc; k++)
                             {
-                                Console.Write((tab[i][j])-k + " ");
-                                
+                                Console.Write((tab[i][j]) - k + " ");
+
                             }
                             break;
                         }
@@ -142,6 +142,8 @@ namespace lab01_01._03
             Zadanie1();
             Zadanie2();
             Zadanie3();
+            Console.ReadKey();
+
         }
     }
 }
