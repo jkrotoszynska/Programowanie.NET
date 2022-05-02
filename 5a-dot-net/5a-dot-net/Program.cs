@@ -31,12 +31,13 @@ namespace _5a_dot_net
                     Console.Write("{0}", (char)znak);
                 }
 
-                //Console.WriteLine("Aby wyjść naciśnij Q lub Escape");
-                //ConsoleKeyInfo keyinfo = Console.ReadKey();
-                //if(keyinfo.Key == ConsoleKey.Q || keyinfo.Key == ConsoleKey.Escape)
-                //{
-                    
-                //}
+                Console.WriteLine(" ");
+                Console.WriteLine("Aby wyjść naciśnij Q lub Escape");
+                ConsoleKeyInfo keyinfo = Console.ReadKey();
+                if(keyinfo.Key == ConsoleKey.q || keyinfo.Key == ConsoleKey.Escape)
+                {
+                    Environment.Exit(0);
+                }
                 Console.WriteLine(" ");
             }
 
@@ -116,8 +117,8 @@ namespace _5a_dot_net
 
             }
 
-            //Zadanie1();
-            //Zadanie2();
+            Zadanie1();
+            Zadanie2();
             Zadanie3();
             Console.ReadKey();
         }
