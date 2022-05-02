@@ -30,12 +30,13 @@ namespace _5a_dot_net
                 {
                     Console.Write("{0}", (char)znak);
                 }
-                Console.WriteLine("Aby wyjść naciśnij Q lub Escape");
-                ConsoleKeyInfo keyinfo = Console.ReadKey();
-                if(keyinfo.Key == ConsoleKey.Q || keyinfo.Key == ConsoleKey.Escape)
-                {
-                    Console.ReadKey();
-                }
+
+                //Console.WriteLine("Aby wyjść naciśnij Q lub Escape");
+                //ConsoleKeyInfo keyinfo = Console.ReadKey();
+                //if(keyinfo.Key == ConsoleKey.Q || keyinfo.Key == ConsoleKey.Escape)
+                //{
+                    
+                //}
                 Console.WriteLine(" ");
             }
 
@@ -81,11 +82,42 @@ namespace _5a_dot_net
             // (wyszukiwanie liczby najmniejszej – dowolna metodą)
             void Zadanie3()
             {
+                Console.Write("Wprowadź ciąg liczb, dzieląc je przecinkami: ");
+                string tekst = Console.ReadLine();
+                string[] arrPom = tekst.Split(',');
+                int[] arr = new int[arrPom.Length];
+
+                for (int i = 0; i < arrPom.Length; i++)
+                {
+                        arr[i] = Convert.ToInt32(arrPom[i]);
+                }
+
+                bool czyPierwsza = true;
+                for (int k = 0; k < arr.Length; k++)
+                {
+                    for (int j = 2; j < arr[k]; j++)
+                    {
+
+                        if (arr[k] % j == 0)
+                        {
+                            czyPierwsza = false;
+                            break;
+                        }
+                        else
+                        {
+                            czyPierwsza = true;
+                        }
+                    }
+                    if (czyPierwsza == true)
+                    {
+                        Console.Write(arr[k] + " ");
+                    }
+                }
 
             }
 
-            Zadanie1();
-            Zadanie2();
+            //Zadanie1();
+            //Zadanie2();
             Zadanie3();
             Console.ReadKey();
         }
