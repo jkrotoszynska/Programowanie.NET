@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace _5a_dot_net
 {
@@ -11,7 +12,31 @@ namespace _5a_dot_net
             // Możesz ograniczyć się do przekodowywania tylko małych liter z alfabetu łacińskiego. (q lub escape kończy działanie)
             void Zadanie1()
             {
+                Console.Write("Podaj tekst do zaszyfrowania: ");
+                string tekst = Console.ReadLine();
+                byte[] arr = Encoding.ASCII.GetBytes(tekst.ToLower());
 
+                //foreach (byte znak in arr)
+                //{
+                //    Console.Write("{0} ", (char)znak);
+                //}
+                Console.Write("Kodowanie: ");
+                for(int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = (byte)(((arr[i] - 95) % 27) + 97);
+                }
+                
+                foreach(byte znak in arr)
+                {
+                    Console.Write("{0}", (char)znak);
+                }
+                Console.WriteLine("Aby wyjść naciśnij Q lub Escape");
+                ConsoleKeyInfo keyinfo = Console.ReadKey();
+                if(keyinfo.Key == ConsoleKey.Q || keyinfo.Key == ConsoleKey.Escape)
+                {
+                    Console.ReadKey();
+                }
+                Console.WriteLine(" ");
             }
 
             // Napisz program rozwiązujący równania kwadratowe, w którym parametry A, B i C będą wprowadzane przez użytkownika z klawiatury.
