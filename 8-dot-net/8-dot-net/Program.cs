@@ -35,8 +35,8 @@ namespace _8_dot_net
                             k++;
                         }
                     }
-                    decimal returnVal = 4 * k / (decimal)n;
-                    Console.WriteLine("Liczba PI w przybliżeniu wynosi: " + returnVal.ToString());
+                    decimal PI = 4 * k / (decimal)n;
+                    Console.WriteLine("W przybliżeniu Liczba PI to: " + PI.ToString());
                 }
             }
 
