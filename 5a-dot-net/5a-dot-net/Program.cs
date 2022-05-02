@@ -23,6 +23,7 @@ namespace _5a_dot_net
                 Console.Write("Kodowanie: ");
                 for(int i = 0; i < arr.Length; i++)
                 {
+                    // poprawić aby zamieniało na same litery? 
                     arr[i] = (byte)(((arr[i] - 95) % 27) + 97);
                 }
                 
@@ -34,7 +35,7 @@ namespace _5a_dot_net
                 Console.WriteLine(" ");
                 Console.WriteLine("Aby wyjść naciśnij Q lub Escape");
                 ConsoleKeyInfo keyinfo = Console.ReadKey();
-                if(keyinfo.Key == ConsoleKey.q || keyinfo.Key == ConsoleKey.Escape)
+                if(keyinfo.Key == ConsoleKey.Q || keyinfo.Key == ConsoleKey.Escape)
                 {
                     Environment.Exit(0);
                 }
