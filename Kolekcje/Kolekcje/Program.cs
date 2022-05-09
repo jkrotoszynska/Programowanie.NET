@@ -25,8 +25,6 @@ namespace Kolekcje
             Console.WriteLine(" ");
 
             int[] myArr = (int[])list.ToArray(typeof(int));
-            int max = myArr.Max();
-            int min = myArr.Min();
             int n = myArr.Length;
 
             int[] output = new int[n];
