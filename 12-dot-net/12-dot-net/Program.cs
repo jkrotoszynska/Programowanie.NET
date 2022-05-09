@@ -1,24 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _12_dot_net
 {
-    class Program
+    // Zad. Napisz implementację algorytmu Newtona-Raphsona w odpowiedniej metodzie klasy zagnieżdżonej,
+    // a następnie w innej klasie wywołaj, tą metodę klasy zagnieżdżonej. Oblicz √3, √5, √37
+    public class Outside
     {
-        static void Main(string[] args)
+        public class Inside
         {
-            // Zad. Napisz implementację algorytmu Newtona-Raphsona w odpowiedniej metodzie klasy zagnieżdżonej,
-            // a następnie w innej klasie wywołaj, tą metodę klasy zagnieżdżonej. Oblicz √3, √5, √37
-
-            void zadanie()
+            public double NewtonRaphson(double n)
             {
-
+                double dok = 0.0000001;
+                double x = n / 2;
+                while (Math.Abs(x - (n / x)) > dok)
+                {
+                    x = (x + (n / x)) / 2;
+                    if (x * x == 2)
+                    {
+                        return x;
+                    }
+                }
+                return x;
             }
-
-            zadanie();
+        }
+        public void wynik()
+        {
+            Inside ins = new Inside();
+            Console.WriteLine("Podaj liczbę, której pierwiastek chcesz uzyskać: ");
+            double liczba = double.Parse(Console.ReadLine());
+            Console.WriteLine(ins.NewtonRaphson(liczba));
+        }
+    }
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Outside out1 = new Outside();
+            out1.wynik();
+            Console.ReadKey();
         }
     }
 }
