@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace _7_dot_net
 {
@@ -15,23 +12,26 @@ namespace _7_dot_net
             // a w pliku umieści posortowaną tablicę 10-elementową liczb całkowitych algorytmem quicksort, wartości tablicy pobierze z pliku
             void Zadanie1() {
                 Console.Write("Podaj nazwę katalogu: ");
-                string katalog  = Console.ReadLine();
+                string folderName  = Console.ReadLine();
                 Console.Write("Podaj nazwę pliku: ");
                 string plik = Console.ReadLine();
                 plik += ".txt";
 
-                //Directory.CreateDirectory(katalog);
-                //FileStream fs = new FileStream(plik, FileMode.Create, FileAccess.ReadWrite);
-                //for(int i = 0; i < 10; i++)
-                //{
-                //    fs.WriteByte((byte)i);
-                //}
-                //fs.Position = 0;
-                //for(int j = 0; j < 10; j++)
-                //{
-                //    Console.Write(fs.ReadByte() + " ");
-                //}
-                //fs.Close();
+                if (!Directory.Exists(folderName))
+                {
+                    Directory.CreateDirectory(folderName);
+                }
+
+                int[] list = new int[10];
+                Random randVal = new Random();
+                for (int i = 0; i < 10; i++)
+                {
+                    list[i] = randVal.Next(1, 51);
+                }
+
+                File.WriteAllText(Path.Combine(folderName, plik), list.ToString());
+
+                //QUICKSORT
 
 
                 Console.WriteLine(" ");
@@ -84,6 +84,7 @@ namespace _7_dot_net
             // Napisz program wyświetlający sumaryczną wielkość plików zawartych w katalogu o nazwie przekazanej z wiersza poleceń.
             void Zadanie3() {
                 Console.Write("Podaj nazwe katalogu: ");
+                // najlepiej wpisać C:\\
                 string folder = Console.ReadLine();
                 long suma = 0;
 
@@ -100,8 +101,8 @@ namespace _7_dot_net
                 Console.WriteLine("Ich łączna wielkość to: " + suma);
              }
 
-            //Zadanie1();
-            //Zadanie2();
+            Zadanie1();
+            Zadanie2();
             Zadanie3();
             Console.ReadKey();
         }
