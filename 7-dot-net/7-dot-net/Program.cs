@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-
+using System.Linq;
 
 namespace _7_dot_net
 {
@@ -17,22 +17,58 @@ namespace _7_dot_net
                 string plik = Console.ReadLine();
                 plik += ".txt";
 
-                if (!Directory.Exists(folderName))
-                {
-                    Directory.CreateDirectory(folderName);
-                }
-
-                int[] list = new int[10];
+                string lista = "";
                 Random randVal = new Random();
                 for (int i = 0; i < 10; i++)
                 {
-                    list[i] = randVal.Next(1, 51);
+                    int wartosc = randVal.Next(1, 51);
+                    lista += wartosc.ToString() + " ";
                 }
 
-                File.WriteAllText(Path.Combine(folderName, plik), list.ToString());
+                if (!Directory.Exists(folderName))
+                {
+                    Directory.CreateDirectory(folderName);
+                    File.WriteAllText(Path.Combine(folderName, plik), lista);
+                }
 
-                //QUICKSORT
+                string text = System.IO.File.ReadAllText(Path.Combine(folderName, plik));
+                System.Console.WriteLine("W pliku znajdują się liczby: {0}", text);
 
+                int[] myArr = new int[10];
+                
+                myArr = text.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+
+                //foreach(int item in myArr)
+                //{
+                //    Console.WriteLine(item);
+                //}
+
+
+                void QuickSort(int[] array, int left, int right)
+                {
+                    int i = left;
+                    int j = right;
+                    int pivot = array[(left + right) / 2];
+                    while (i < j)
+                    {
+                        while (array[i] < pivot) i++;
+                        while (array[j] > pivot) j--;
+                        if (i <= j)
+                        {
+                            int tmp = array[i];
+                            array[i++] = array[j]; 
+                            array[j--] = tmp;
+                        }
+                    }
+                    if (left < j) QuickSort(array, left, j);
+                    if (i < right) QuickSort(array, i, right);
+
+                }
+
+                QuickSort(myArr, 0, myArr.Length - 1);
+
+                Console.WriteLine("Po sortowaniu liczby wyglądają w następujący sposób: ");
+                Console.WriteLine(string.Join(" ", myArr));
 
                 Console.WriteLine(" ");
             }
