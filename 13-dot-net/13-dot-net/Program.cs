@@ -29,7 +29,7 @@ namespace _13_dot_net
             {
                 Console.Write(item + " ");
             }
-            //PrintArray(myArr);
+
             Console.ReadKey();
 
         }
@@ -51,14 +51,5 @@ namespace _13_dot_net
             }
         }
 
-        private static void PrintArray(int[] newArr)
-        {
-            Console.WriteLine("Posortowana tablica: ");
-
-            for (int i = 0; i < newArr.Length; ++i)
-                Console.Write(newArr[i] + " ");
-
-            Console.Write("\n");
-        }
     }
 }
